@@ -33,7 +33,10 @@ const pluginHandler = async options => {
         if (panelName.endsWith('.tsx')) {
           outputFilePath = `${filePath}/${item.directory}/index.tsx`;
         }
-        if (!fse.existsSync(filePath)) {
+        if (!fse.existsSync(`${filePath}/${item.directory}`)) {
+          if (!fse.existsSync(`${filePath}/components`)) {
+            fse.mkdirSync(`${filePath}/components`);
+          }
           fse.mkdirSync(`${filePath}/${item.directory}`);
         }
       }
