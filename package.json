@@ -1,6 +1,6 @@
 {
   "name": "@imgcook/saascrm",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "saascrm",
   "main": "index.js",
   "scripts": {
