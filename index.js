@@ -30,9 +30,9 @@ const pluginHandler = async options => {
       let outputFilePath = `${filePath}/${panelName}`;
       if (item.directory) {
         outputFilePath = `${filePath}/${item.directory}/${panelName}`;
-        if (panelName.endsWith('.tsx')) {
-          outputFilePath = `${filePath}/${item.directory}/index.tsx`;
-        }
+        // if (panelName.endsWith('.tsx')) {
+        //   outputFilePath = `${filePath}/${item.directory}/index.tsx`;
+        // }
         if (!fse.existsSync(`${filePath}/${item.directory}`)) {
           if (!fse.existsSync(`${filePath}/components`)) {
             fse.mkdirSync(`${filePath}/components`);
@@ -40,6 +40,7 @@ const pluginHandler = async options => {
           fse.mkdirSync(`${filePath}/${item.directory}`);
         }
       }
+      console.log('outputFilePath::', outputFilePath);
       await fse.writeFile(outputFilePath, value, 'utf8');
       index++;
     }
